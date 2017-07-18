@@ -58,7 +58,31 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  // Input: 100    Output: T
+  // Input: 50     Output: T
+  // Input: 47     Output: F
+  var output = false;
+
+  // Edge Case
+  if (n === 0) {
+    output = true;
+  } else if (n === 1) {  // Base Case
+    output = false;
+//   } else if (n === 2) {  // Base Case
+//     output = true;
+  } else {
+    if (n < 0) {
+      n *= -1;
+    }
+    output = isEven(n-2); // Save it to a variable to bubble it up!!!
+    // Else the answer was stuck in the base case with nowhere to save its value
+  }
+  return output;
 };
+// console.log(isEven(-5));
+// console.log(isEven(-6));
+// console.log(isEven(5));
+// console.log(isEven(6));
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
